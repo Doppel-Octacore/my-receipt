@@ -57,8 +57,15 @@ const Receipt = () => {
       </div>
       <div style={styles.receiptContainer}>
       <h1 style={styles.heading}>Venmo</h1>
-          <h2 style={styles.total}>@David-Cervantes-133</h2>
-          <img src={venmoImage} style={{ width: "100%", height: "auto" }}/>
+        <a 
+          href="https://venmo.com/code?user_id=3612146969609850718&created=1726954181" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={styles.button}
+        >
+        @David-Cervantes-133
+        </a>
+        <img src={venmoImage} style={{ width: "100%", height: "auto" }}/>
       </div>
     </div>
   );
@@ -101,6 +108,17 @@ const styles = {
     border: "2px solid #b2ebf2",
     borderRadius: "5px",
     cursor: "pointer",
+  },
+  button: {
+    display: "inline-block",
+    padding: "10px 20px",
+    fontSize: "16px",
+    color: "#fff",
+    backgroundColor: "#007bff",
+    borderRadius: "5px",
+    textDecoration: "none",
+    textAlign: "center",
+    margin: "10px 0",
   },
   total: {
     fontSize: "20px",
