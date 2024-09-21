@@ -25,25 +25,71 @@ const Receipt = () => {
     .reduce((total, product) => total + product.price, 0);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Receipt</h1>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
-        {products.map(product => (
-          <li key={product.id} style={{ margin: "10px 0" }}>
-            <input
-              type="checkbox"
-              checked={product.isSelected}
-              onChange={() => handleSelect(product.id)}
-            />
-            <label style={{ marginLeft: "10px" }}>
-              {product.name} - ${product.price}
-            </label>
-          </li>
-        ))}
-      </ul>
-      <h2>Total: ${totalCost}</h2>
+    <div style={styles.container}>
+      <div style={styles.receiptContainer}>
+        <h1 style={styles.heading}>Receipt</h1>
+        <ul style={styles.productList}>
+          {products.map(product => (
+            <li key={product.id} style={{ marginBottom: "10px" }}>
+              <button
+                style={{
+                  ...styles.productButton,
+                  backgroundColor: product.isSelected ? "#d1ecf1" : "#fff"
+                }}
+                onClick={() => handleSelect(product.id)}
+              >
+                {product.name} - ${product.price.toFixed(2)}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <h2 style={styles.total}>Total: ${totalCost.toFixed(2)}</h2>
+      </div>
     </div>
   );
+};
+
+const styles = {
+  container: {
+    backgroundColor: "#e0f7ff",
+    padding: "20px",
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  receiptContainer: {
+    backgroundColor: "#fff",
+    borderRadius: "10px",
+    padding: "20px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "100%",
+    maxWidth: "400px",
+  },
+  heading: {
+    fontSize: "24px",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  productList: {
+    listStyleType: "none",
+    padding: 0,
+  },
+  productButton: {
+    width: "100%",
+    padding: "15px 20px",
+    fontSize: "16px",
+    textAlign: "left",
+    backgroundColor: "#fff",
+    border: "2px solid #b2ebf2",
+    borderRadius: "5px",
+    cursor: "pointer",
+  },
+  total: {
+    fontSize: "20px",
+    textAlign: "center",
+    marginTop: "20px",
+  }
 };
 
 export default Receipt;
