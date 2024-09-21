@@ -27,7 +27,7 @@ const Receipt = () => {
   return (
     <div style={styles.container}>
       <div style={styles.receiptContainer}>
-        <h1 style={styles.heading}>Receipt</h1>
+        <h1 style={styles.heading}>Pupusas Las Cabanas Receipt</h1>
         <ul style={styles.productList}>
           {products.map(product => (
             <li key={product.id} style={{ marginBottom: "10px" }}>
@@ -53,6 +53,11 @@ const Receipt = () => {
 
         {/* Total (subtotal + tax + tip) */}
         <h2 style={styles.total}>Total: ${(totalCost + totalCost * 0.1075 + totalCost * 0.20).toFixed(2)}</h2>
+      </div>
+      <div style={styles.receiptContainer}>
+      <h1 style={styles.heading}>Venmo</h1>
+
+
       </div>
     </div>
   );
