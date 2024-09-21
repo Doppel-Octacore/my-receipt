@@ -43,7 +43,16 @@ const Receipt = () => {
             </li>
           ))}
         </ul>
-        <h2 style={styles.total}>Total: ${totalCost.toFixed(2)}</h2>
+        <h2 style={styles.total}>Subtotal: ${totalCost.toFixed(2)}</h2>
+
+        {/* 10.75% tax based on Subtotal*/}
+        <h2 style={styles.total}>Tax (10.75%): ${(totalCost * 0.1075).toFixed(2)}</h2>
+
+        {/* 20% tip based on Subtotal */}
+        <h2 style={styles.total}>Tip (20%): ${(totalCost * 0.20).toFixed(2)}</h2>
+
+        {/* Total (subtotal + tax + tip) */}
+        <h2 style={styles.total}>Total: ${(totalCost + totalCost * 0.1075 + totalCost * 0.20).toFixed(2)}</h2>
       </div>
     </div>
   );
