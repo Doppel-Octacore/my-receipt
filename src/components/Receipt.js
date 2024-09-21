@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import venmoImage from './media/Screenshot_20240921-143011_Venmo.png';
 
 const Receipt = () => {
   const [products, setProducts] = useState([
@@ -56,8 +57,8 @@ const Receipt = () => {
       </div>
       <div style={styles.receiptContainer}>
       <h1 style={styles.heading}>Venmo</h1>
-
-
+          <h2 style={styles.total}>@David-Cervantes-133</h2>
+          <img src={venmoImage} style={{ width: "100%", height: "auto" }}/>
       </div>
     </div>
   );
