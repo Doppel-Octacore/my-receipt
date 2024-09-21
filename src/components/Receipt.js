@@ -119,7 +119,6 @@ const styles = {
     textDecoration: "none",
     textAlign: "center",
     margin: "10px 0",
-    width: "fit-content",
   },
   total: {
     fontSize: "20px",
