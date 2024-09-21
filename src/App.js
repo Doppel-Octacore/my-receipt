@@ -1,5 +1,5 @@
 import React from "react";
-import Receipt from "./Receipt";
+import Receipt from './components/Receipt';
 
 const App = () => {
   return (
