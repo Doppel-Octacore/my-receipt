@@ -72,6 +72,8 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
+    gap: "10px",
   },
   receiptContainer: {
     backgroundColor: "#fff",
