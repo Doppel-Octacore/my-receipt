@@ -110,7 +110,7 @@ const styles = {
     cursor: "pointer",
   },
   button: {
-    display: "inline-block",
+    display: "block",
     padding: "10px 20px",
     fontSize: "16px",
     color: "#fff",
@@ -119,6 +119,7 @@ const styles = {
     textDecoration: "none",
     textAlign: "center",
     margin: "10px 0",
+    width: "fit-content",
   },
   total: {
     fontSize: "20px",
