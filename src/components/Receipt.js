@@ -34,7 +34,8 @@ const Receipt = () => {
           {products.map(product => (
             <li key={product.id} className="mb-4">
               <button
-                className={`button is-fullwidth is-light ${product.isSelected ? "has-background-info-light" : ""}`}
+                className={`button is-light ${product.isSelected ? "has-background-info-light" : ""}`}
+                style={{ maxWidth: "100%", whiteSpace: "normal" }} // Allow wrapping and limit width
                 onClick={() => handleSelect(product.id)}
               >
                 {product.name} - ${product.price.toFixed(2)}
