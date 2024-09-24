@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import venmoImage from './media/Screenshot_20240921-143011_Venmo.png';
+import 'bulma/css/bulma.min.css';
 
 const Receipt = () => {
   const [products, setProducts] = useState([
@@ -26,17 +27,14 @@ const Receipt = () => {
     .reduce((total, product) => total + product.price, 0);
 
   return (
-    <div style={styles.container}>
-      <div style={styles.receiptContainer}>
-        <h1 style={styles.heading}>Pupusas Las Cabanas Receipt</h1>
-        <ul style={styles.productList}>
+    <div className="container has-background-light py-6">
+      <div className="box">
+        <h1 className="title has-text-centered">Pupusas Las Cabanas Receipt</h1>
+        <ul>
           {products.map(product => (
-            <li key={product.id} style={{ marginBottom: "10px" }}>
+            <li key={product.id} className="mb-4">
               <button
-                style={{
-                  ...styles.productButton,
-                  backgroundColor: product.isSelected ? "#d1ecf1" : "#fff"
-                }}
+                className={`button is-fullwidth is-light ${product.isSelected ? "has-background-info-light" : ""}`}
                 onClick={() => handleSelect(product.id)}
               >
                 {product.name} - ${product.price.toFixed(2)}
@@ -44,87 +42,28 @@ const Receipt = () => {
             </li>
           ))}
         </ul>
-        <h2 style={styles.total}>Subtotal: ${totalCost.toFixed(2)}</h2>
-
-        {/* 10.75% tax based on Subtotal*/}
-        <h2 style={styles.total}>Tax (10.75%): ${(totalCost * 0.1075).toFixed(2)}</h2>
-
-        {/* 20% tip based on Subtotal */}
-        <h2 style={styles.total}>Tip (20%): ${(totalCost * 0.20).toFixed(2)}</h2>
-
-        {/* Total (subtotal + tax + tip) */}
-        <h2 style={styles.total}>Total: ${(totalCost + totalCost * 0.1075 + totalCost * 0.20).toFixed(2)}</h2>
+        <h2 className="subtitle has-text-centered">Subtotal: ${totalCost.toFixed(2)}</h2>
+        <h2 className="subtitle has-text-centered">Tax (10.75%): ${(totalCost * 0.1075).toFixed(2)}</h2>
+        <h2 className="subtitle has-text-centered">Tip (20%): ${(totalCost * 0.20).toFixed(2)}</h2>
+        <h2 className="title has-text-centered">Total: ${(totalCost + totalCost * 0.1075 + totalCost * 0.20).toFixed(2)}</h2>
       </div>
-      <div style={styles.receiptContainer}>
-      <h1 style={styles.heading}>Venmo</h1>
+      
+      <div className="box">
+        <h1 className="title has-text-centered">Venmo</h1>
         <a 
-          href="https://venmo.com/code?user_id=3612146969609850718&created=1726954181" 
-          target="_blank" 
+          href="https://venmo.com/code?user_id=3612146969609850718&created=1726954181"
+          target="_blank"
           rel="noopener noreferrer"
-          style={styles.button}
+          className="button is-link is-fullwidth"
         >
-        @David-Cervantes-133
+          @David-Cervantes-133
         </a>
-        <img src={venmoImage} style={{ width: "100%", height: "auto" }}/>
+        <figure className="image is-4by3">
+          <img src={venmoImage} alt="Venmo QR Code" />
+        </figure>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    backgroundColor: "#e0f7ff",
-    padding: "20px",
-    minHeight: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    gap: "10px",
-  },
-  receiptContainer: {
-    backgroundColor: "#fff",
-    borderRadius: "10px",
-    padding: "20px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    width: "100%",
-    maxWidth: "400px",
-  },
-  heading: {
-    fontSize: "24px",
-    marginBottom: "20px",
-    textAlign: "center",
-  },
-  productList: {
-    listStyleType: "none",
-    padding: 0,
-  },
-  productButton: {
-    width: "100%",
-    padding: "15px 20px",
-    fontSize: "16px",
-    textAlign: "left",
-    backgroundColor: "#fff",
-    border: "2px solid #b2ebf2",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
-  button: {
-    display: "block",
-    padding: "10px 20px",
-    fontSize: "16px",
-    color: "#fff",
-    backgroundColor: "#007bff",
-    borderRadius: "5px",
-    textDecoration: "none",
-    textAlign: "center",
-    margin: "10px 0",
-  },
-  total: {
-    fontSize: "20px",
-    textAlign: "center",
-    marginTop: "20px",
-  }
 };
 
 export default Receipt;
